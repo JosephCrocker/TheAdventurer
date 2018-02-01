@@ -164,6 +164,10 @@ public class UIManager : MonoBehaviour
     { SceneManager.LoadScene("Level2");
     }
 
+    public void Level3()
+    { SceneManager.LoadScene("Level3");
+    }
+
     public void LoadPauseMenu()
     {
         if (PauseMenuActive == false)

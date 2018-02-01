@@ -9,18 +9,31 @@ public class MenuScript : MonoBehaviour
     public Transform NamePlark;
     public Transform HelpSection;
     public Transform AssetSection;
+    public Transform LevelSection;
     public bool ASectionLoaded;
+    public bool LevelLoaded;
 
 	void Start () 
     {
         Time.timeScale = 1;
         ASectionLoaded = false;
+        LevelLoaded = false;
     }
 
 	void Update () {}
 
     public void LoadLevel()
     {   SceneManager.LoadScene("Level1");
+    }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level3");
     }
 
     public void ExitGame()
@@ -33,6 +46,11 @@ public class MenuScript : MonoBehaviour
         {
             AssetSection.gameObject.SetActive(false);
             ASectionLoaded = false;
+        }
+        if (LevelLoaded == true)
+        {
+            LevelSection.gameObject.SetActive(false);
+            LevelLoaded = false;
         }
         Buttons.gameObject.SetActive(false);
         NamePlark.gameObject.SetActive(false);
@@ -50,6 +68,11 @@ public class MenuScript : MonoBehaviour
     {
         if (ASectionLoaded == false)
         {
+            if (LevelLoaded == true)
+            {
+                LevelSection.gameObject.SetActive(false);
+                LevelLoaded = false;
+            }
             AssetSection.gameObject.SetActive(true);
             ASectionLoaded = true;
         }
@@ -57,6 +80,25 @@ public class MenuScript : MonoBehaviour
         {
             AssetSection.gameObject.SetActive(false);
             ASectionLoaded = false;
+        }
+    }
+
+    public void Loadlevels()
+    {
+        if (LevelLoaded == false)
+        {
+            if (ASectionLoaded == true)
+            {
+                AssetSection.gameObject.SetActive(false);
+                ASectionLoaded = false;
+            }
+            LevelSection.gameObject.SetActive(true);
+            LevelLoaded = true;
+        }
+        else if (LevelLoaded == true)
+        {
+            LevelSection.gameObject.SetActive(false);
+            LevelLoaded = false;
         }
     }
 }
