@@ -66,7 +66,7 @@ public class Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider AI)
     {
-        if (AI.gameObject.tag == "AI")
+        if (AI.gameObject.tag == "AI" || AI.gameObject.tag == "Lava")
         {
             if (Lifes > 0)
             {

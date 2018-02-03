@@ -20,9 +20,9 @@ public class AIScript : MonoBehaviour
         }
 	}
 
-    void OnTriggerEnter(Collider Player)
+    void OnTriggerEnter(Collider Threat)
     {
-        if (Player.gameObject.tag == "Player")
+        if (Threat.gameObject.tag == "Player")
         {
             PlayerInRange = true;
         }
