@@ -9,14 +9,18 @@ public class LavaBallMovement : MonoBehaviour
 
 	void Start () 
     {
-		
 	}
 	
 	void Update () 
     {
+        TravelTime -= 1 * Time.deltaTime;
         if (TravelTime > 0)
         {
             this.gameObject.transform.position += transform.forward * Speed * Time.deltaTime;
+        }
+        else if (TravelTime <= 0)
+        {
+            TravelTime = 0;
         }
 	}
 }
