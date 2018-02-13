@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public Text ZoneNum;
     public Text ZoneCount;
     public Image Checkmark;
-    public RawImage Tracker;
+    public Image Tracker;
     public Transform GameOverUI;
     // Pause Items
     public Transform PauseUI;
