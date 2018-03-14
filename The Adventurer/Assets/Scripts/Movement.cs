@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
 	
 	void Update () 
     {
+#if UNITY_STANDALONE_WIN
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
             Controller.Move(new Vector3(-_Speed, 0, -_Speed) * Time.deltaTime);
@@ -62,6 +63,14 @@ public class Movement : MonoBehaviour
         {
             Controller.Move(new Vector3(0, 0, _Speed) * Time.deltaTime);
         }
+#endif
+#if UNITY_ANDROID
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 touchDeltaPos = Input.GetTouch(0).deltaPosition;
+            Controller.Move(new Vector3(-touchDeltaPos.x * _Speed, -touchDeltaPos.y * _Speed, 0));
+        }
+#endif
 	}
 
     void OnTriggerEnter(Collider AI)
